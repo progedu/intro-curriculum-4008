@@ -1,7 +1,7 @@
 'use strict';
-let express = require('express');
-let router = express.Router();
-let os = require('os');
+const express = require('express');
+const router = express.Router();
+const os = require('os');
 
 router.get('/', (req, res, next) => {
   res.json({ loadavg: os.loadavg() });
