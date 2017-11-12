@@ -16,9 +16,11 @@ movingButton.click(() => {
 });
 
 const loadavg = $('#loadavg');
+const freemem = $('#freemem');
 
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
+    freemem.text(data.freemem);
   });
-}, 10);
+}, 1000);
