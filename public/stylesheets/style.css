@@ -14,7 +14,7 @@ a {
   background-color: rgb(28, 187, 187);
   background-image: radial-gradient(#eee 10%, transparent 20%), radial-gradient(#eee 10%, transparent 20%);
   background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-    border: solid 3px #6091d3;/*線で囲む*/
-    border-radius: 10px;/*角の丸み付ける*/
+  background-position: 0 0, 10px 10px;/*水玉模様*/
+    border: solid 3px #6091d3;/*枠*/
+    border-radius: 10px;/*丸み*/
 }
