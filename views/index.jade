@@ -3,6 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  //- ユーザーデータが設定されている場合（ログイン中）は
+  //- ログアウトページへのリンクを表示し、
+  //- ログインしていない場合はログインページへのリンクを表示する
   if user
     p Hello, #{user.username}
     a(href="/logout") Logout
@@ -14,4 +17,5 @@ block content
   h1 サーバーステータス
   h3 ロードアベレージ
   p(id="loadavg")
+  //- webpackでひとまとめにしたJSファイルを読み込む
   script(src="/javascripts/bundle.js")
