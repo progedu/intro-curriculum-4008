@@ -10,14 +10,14 @@
     "cookie-parser": "~1.4.3",
     "damage-calc": "git+https://github.com/progedu/damage-calc-4006.git",
     "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "express": "^4.16.3",
     "express-session": "^1.13.0",
-    "helmet": "^1.1.0",
-    "pug": "^2.0.0-rc.4",
+    "helmet": "^3.13.0",
     "jquery": "^3.3.1",
     "morgan": "~1.9.0",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.9",
+    "pug": "^2.0.0-rc.4",
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
