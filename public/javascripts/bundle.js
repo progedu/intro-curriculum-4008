@@ -97,7 +97,7 @@ setInterval(function () {
   _jquery2.default.get('/server-status', {}, function (data) {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 100);
 
 /***/ }),
 /* 1 */
