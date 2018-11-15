@@ -1,5 +1,5 @@
 'use strict';
-const $ = require('jquery');
+import $ from 'jquery';
 const block = $('#block');
 const scalingButton = $('#scaling-button');
 

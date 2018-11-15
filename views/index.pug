@@ -8,10 +8,10 @@ block content
     a(href="/logout") Logout
   else
     a(href="/login") Login
-  div(id="block", class="block")
-  button(id="scaling-button") 拡大縮小
-  button(id="moving-button") 移動
+  div#block.block
+  button#scaling-button 拡大縮小
+  button#moving-button 移動
   h1 サーバーステータス
   h3 ロードアベレージ
-  p(id="loadavg")
+  p#loadavg
   script(src="/javascripts/bundle.js")
