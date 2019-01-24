@@ -13,3 +13,19 @@ a {
   margin: 20pt;
   background-color: chocolate;
 }
+
+.bar {
+  width: 500pt;
+  height: 15pt;
+  margin: 0pt;
+}
+
+#bar-0{
+  background-color: red;
+}
+#bar-1{
+  background-color: green;
+}
+#bar-2{
+  background-color: blue;
+}

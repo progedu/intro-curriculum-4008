@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,45 +79,61 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var _jquery = __webpack_require__(1);
+var BAR_WIDTH = 400;
 
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var block = (0, _jquery2.default)('#block');
-var scalingButton = (0, _jquery2.default)('#scaling-button');
-
+var block = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#block');
+var scalingButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#scaling-button');
 scalingButton.click(function () {
-  block.animate({ width: '200pt', height: '200pt' }, 2000);
-  block.animate({ width: '100pt', height: '100pt' }, 2000);
+  block.animate({
+    width: '200pt',
+    height: '200pt'
+  }, 2000);
+  block.animate({
+    width: '100pt',
+    height: '100pt'
+  }, 2000);
 });
-
-var movingButton = (0, _jquery2.default)('#moving-button');
-
+var movingButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#moving-button');
 movingButton.click(function () {
-  block.animate({ 'marginLeft': '500px' }, 500);
-  block.animate({ 'marginLeft': '20px' }, 1000);
+  block.animate({
+    'marginLeft': '400px'
+  }, 500);
+  block.animate({
+    'marginLeft': '20px'
+  }, 1000);
 });
-
-var loadavg = (0, _jquery2.default)('#loadavg');
-
+var loadavg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loadavg');
 setInterval(function () {
-  _jquery2.default.get('/server-status', {}, function (data) {
-    loadavg.text(data.loadavg.toString());
+  jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('/server-status', {}, function (data) {
+    data.loadavg.forEach(function (value, index, array) {
+      array[index] = value.toFixed(10); //小数点以下の桁数を揃える
+
+      var num = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#num-' + index); //対応するdivオブジェクトを取得
+
+      num.text(array[index]); //テキスト書き換え
+
+      var bar = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#bar-' + index); //棒グラフオブジェクトを取得
+
+      bar.width(BAR_WIDTH * array[index]); //棒グラフの幅を変更
+    });
+    loadavg.text(data.loadavg.join(' : '));
   });
-}, 10);
+}, 1000);
 
 /***/ }),
 /* 1 */
@@ -120,7 +156,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 	"use strict";
 
-	if ( typeof module === "object" && typeof module.exports === "object" ) {
+	if (  true && typeof module.exports === "object" ) {
 
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
