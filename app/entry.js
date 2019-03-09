@@ -21,4 +21,5 @@ setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+// }, 10);
+}, 1000);
