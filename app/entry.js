@@ -17,8 +17,8 @@ movingButton.click(() => {
 
 const loadavg = $('#loadavg');
 
-setInterval(() => {
-  $.get('/server-status', {}, (data) => {
-    loadavg.text(data.loadavg.toString());
-  });
-}, 10);
+import io from 'socket.io-client';
+const socket = io('http://localhost:8000');
+socket.on('server-status', (data) => {
+  loadavg.text(data.loadavg.toString());
+});
