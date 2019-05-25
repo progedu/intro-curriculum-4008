@@ -17,8 +17,9 @@ movingButton.click(() => {
 
 const loadavg = $('#loadavg');
 
+//1秒間隔に変更する
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 1000);
