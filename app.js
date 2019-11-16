@@ -1,15 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var helmet = require('helmet');
-var session = require('express-session');
-var passport = require('passport');
-var GitHubStrategy = require('passport-github2').Strategy;
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let helmet = require('helmet');
+let session = require('express-session');
+let passport = require('passport');
+let GitHubStrategy = require('passport-github2').Strategy;
 
-var GITHUB_CLIENT_ID = 'f756acb8748f85e2014b';
-var GITHUB_CLIENT_SECRET = '0fc57f6660bd5da78873eeacda8c131859b64f30';
+let GITHUB_CLIENT_ID = 'f756acb8748f85e2014b';
+let GITHUB_CLIENT_SECRET = '0fc57f6660bd5da78873eeacda8c131859b64f30';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -31,12 +31,12 @@ passport.use(new GitHubStrategy({
   }
 ));
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var photosRouter = require('./routes/photos');
-var serverStatusRouter = require('./routes/server-status');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let photosRouter = require('./routes/photos');
+let serverStatusRouter = require('./routes/server-status');
 
-var app = express();
+let app = express();
 app.use(helmet());
 
 // view engine setup
