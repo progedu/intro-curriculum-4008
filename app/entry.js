@@ -1,4 +1,6 @@
 'use strict';
+//2018年度のryjkmrさんのプルリクを参考にしました
+const BAR_HEIGHT = 400;
 import $ from 'jquery';
 const block = $('#block');
 const scalingButton = $('#scaling-button');
@@ -19,6 +21,14 @@ const loadavg = $('#loadavg');
 
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
-    loadavg.text(data.loadavg.toString());
+    //loadavg.text(data.loadavg.toString());
+    data.loadavg.forEach((value, index, array) => {
+      array[index] = value.toFixed(10); //小数点以下の桁数を揃える
+      let num = $(`num-${index}`); //対応するdivオブジェクトを取得
+      num.text(array[index]); //テキストを書き換え
+      let bar = $(`#bar-${index}`); //棒グラフオブジェクトを取得
+      bar.height(BAR_HEIGHT * array[index]);
+    });
+    loadavg.text(data.loadavg.join(' : '));
   });
-}, 10);
+}, 100);
