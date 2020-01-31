@@ -110,10 +110,10 @@ scalingButton.click(function () {
 var movingButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#moving-button');
 movingButton.click(function () {
   block.animate({
-    'marginLeft': '500px'
+    marginLeft: '500px'
   }, 500);
   block.animate({
-    'marginLeft': '20px'
+    marginLeft: '20px'
   }, 1000);
 });
 var loadavg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loadavg');
@@ -121,7 +121,7 @@ setInterval(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('/server-status', {}, function (data) {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 1000);
 
 /***/ }),
 /* 1 */
