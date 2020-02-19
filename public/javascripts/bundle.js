@@ -121,7 +121,7 @@ setInterval(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('/server-status', {}, function (data) {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 100);
 
 /***/ }),
 /* 1 */
