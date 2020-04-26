@@ -1,3 +1,5 @@
+
+// 10 ミリ秒間隔 を 1 秒間隔のポーリングに変更
 'use strict';
 import $ from 'jquery';
 const block = $('#block');
@@ -21,4 +23,4 @@ setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 1000);
