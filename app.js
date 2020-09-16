@@ -36,7 +36,7 @@ var usersRouter = require('./routes/users');
 var photosRouter = require('./routes/photos');
 var serverStatusRouter = require('./routes/server-status');
 
-var app = express();
+var app = express();    // expressオブジェクトからインスタンスを生成
 app.use(helmet());
 
 // view engine setup
