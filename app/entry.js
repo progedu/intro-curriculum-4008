@@ -15,10 +15,10 @@ movingButton.click(() => {
   block.animate({ 'marginLeft': '20px' }, 1000);
 });
 
-const loadavg = $('#loadavg');
+const loadavg = $('#loadavg');//id設定されたjQuery オブジェクトを取得し、変数に入れる
 
-setInterval(() => {
-  $.get('/server-status', {}, (data) => {
-    loadavg.text(data.loadavg.toString());
+setInterval(() => {//1000ミリ秒に1回処理をする。(1秒に1回)
+  $.get('/server-status', {}, (data) => {//アクセスあったらAJAX通信する、届いたら
+    loadavg.text(data.loadavg.toString());//受け取ったデータが data という引数に渡されるので、 そのプロパティの loadavg の配列取得して文字列に変換し、 段落の内部のテキストを書き換える
   });
-}, 10);
+}, 1000);
