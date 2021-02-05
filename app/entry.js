@@ -16,9 +16,18 @@ movingButton.click(() => {
 });
 
 const loadavg = $('#loadavg');
+const loadavg_button = $('#loadavg_button');
 
+/*
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 1000);
+*/
+
+loadavg_button.on('click', () => {
+  $.get('/server-status', {}, (data) => {
+    loadavg.text(data.loadavg.toString());
+  });
+});
