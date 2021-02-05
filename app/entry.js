@@ -15,10 +15,13 @@ movingButton.click(() => {
   block.animate({ 'marginLeft': '20px' }, 1000);
 });
 
-const loadavg = $('#loadavg');
+const [loadavg, cpuArch, osPlatform, freeMemory] = [$('#loadavg'),$('#cpuArch'), $('#osPlatform'), $('#freeMemory')];//jQueryオブジェクトをそれぞれ定数にいれる
 
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
+    cpuArch.text(data.cpuArch);//CPUのアーキテクチャ
+    osPlatform.text(data.osPlatform);//OSの種類
+    freeMemory.text(data.freeMemory.toString());//空きメモリ容量
   });
-}, 10);
+}, 1000);
