@@ -15,10 +15,15 @@ movingButton.click(() => {
   block.animate({ 'marginLeft': '20px' }, 1000);
 });
 
-const loadavg = $('#loadavg');
+const loadavg1 = $('#loadavg1');
+const loadavg2 = $('#loadavg2');
 
+let i = 0;
 setInterval(() => {
   $.get('/server-status', {}, (data) => {
-    loadavg.text(data.loadavg.toString());
+    //toString()がなぜ必要かわかりません。下二つは同じように表示されました。
+    loadavg1.text(`${data.loadavg.toString()} ${i}sec経過(目安)`);
+    loadavg2.text(`${data.loadavg} ${i}sec経過(目安)`);
+    i++;
   });
-}, 10);
+}, 1000);

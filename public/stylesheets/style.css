@@ -13,3 +13,11 @@ a {
   margin: 20pt;
   background-color: chocolate;
 }
+
+#loadavg1 {
+  color: #ff9100;
+}
+
+#loadavg2 {
+  color: #0400ff;
+}
