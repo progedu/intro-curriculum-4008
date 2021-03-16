@@ -1,5 +1,5 @@
 'use strict';
-const $ = require('jquery');
+import $ from 'jquery';
 const block = $('#block');
 const scalingButton = $('#scaling-button');
 
@@ -21,4 +21,4 @@ setInterval(() => {
   $.get('/server-status', {}, (data) => {
     loadavg.text(data.loadavg.toString());
   });
-}, 10);
+}, 1000);
