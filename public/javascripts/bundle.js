@@ -67,13 +67,51 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+	'use strict';
+	const $ = __webpack_require__(1);
+	const block = $('#block');
+	const scalingButton = $('#scaling-button');
+=======
 "use strict";
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 
+<<<<<<< HEAD
+	const movingButton = $('#moving-button');
+=======
 var _jquery = __webpack_require__(1);
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+<<<<<<< HEAD
+	const loadavg = $('#loadavg');
+
+	setInterval(() => {
+	  $.get('/server-status', {}, (data) => {
+	    loadavg.text(data.loadavg.toString());
+	  });
+	}, 1000);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * jQuery JavaScript Library v2.2.4
+	 * http://jquery.com/
+	 *
+	 * Includes Sizzle.js
+	 * http://sizzlejs.com/
+	 *
+	 * Copyright jQuery Foundation and other contributors
+	 * Released under the MIT license
+	 * http://jquery.org/license
+	 *
+	 * Date: 2016-05-20T17:23Z
+	 */
+=======
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var block = (0, _jquery2.default)('#block');
@@ -83,6 +121,7 @@ scalingButton.click(function () {
   block.animate({ width: '200pt', height: '200pt' }, 2000);
   block.animate({ width: '100pt', height: '100pt' }, 2000);
 });
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 var movingButton = (0, _jquery2.default)('#moving-button');
 
@@ -164,7 +203,12 @@ var push = arr.push;
 
 var indexOf = arr.indexOf;
 
+<<<<<<< HEAD
+	var
+		version = "2.2.4",
+=======
 var class2type = {};
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 var toString = class2type.toString;
 
@@ -406,12 +450,32 @@ jQuery.extend( {
 	// Assume jQuery is ready without the ready module
 	isReady: true,
 
+<<<<<<< HEAD
+		isPlainObject: function( obj ) {
+			var key;
+=======
 	error: function( msg ) {
 		throw new Error( msg );
 	},
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 	noop: function() {},
 
+<<<<<<< HEAD
+			// Not own constructor property must be Object
+			if ( obj.constructor &&
+					!hasOwn.call( obj, "constructor" ) &&
+					!hasOwn.call( obj.constructor.prototype || {}, "isPrototypeOf" ) ) {
+				return false;
+			}
+
+			// Own properties are enumerated firstly, so to speed up,
+			// if last one is own, then all properties are own
+			for ( key in obj ) {}
+
+			return key === undefined || hasOwn.call( obj, key );
+		},
+=======
 	isPlainObject: function( obj ) {
 		var proto, Ctor;
 
@@ -420,6 +484,7 @@ jQuery.extend( {
 		if ( !obj || toString.call( obj ) !== "[object Object]" ) {
 			return false;
 		}
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 		proto = getProto( obj );
 
@@ -5338,6 +5403,16 @@ jQuery.event = {
 						// Don't conflict with Object.prototype properties (#13203)
 						sel = handleObj.selector + " ";
 
+<<<<<<< HEAD
+	// jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
+	// http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+	jQuery.Event.prototype = {
+		constructor: jQuery.Event,
+		isDefaultPrevented: returnFalse,
+		isPropagationStopped: returnFalse,
+		isImmediatePropagationStopped: returnFalse,
+		isSimulated: false,
+=======
 						if ( matchedSelectors[ sel ] === undefined ) {
 							matchedSelectors[ sel ] = handleObj.needsContext ?
 								jQuery( sel, this ).index( cur ) > -1 :
@@ -5353,6 +5428,7 @@ jQuery.event = {
 				}
 			}
 		}
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 		// Add the remaining (directly-bound) handlers
 		cur = this;
@@ -5363,10 +5439,19 @@ jQuery.event = {
 		return handlerQueue;
 	},
 
+<<<<<<< HEAD
+			if ( e && !this.isSimulated ) {
+				e.preventDefault();
+			}
+		},
+		stopPropagation: function() {
+			var e = this.originalEvent;
+=======
 	addProp: function( name, hook ) {
 		Object.defineProperty( jQuery.Event.prototype, name, {
 			enumerable: true,
 			configurable: true,
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 			get: isFunction( hook ) ?
 				function() {
@@ -5380,6 +5465,10 @@ jQuery.event = {
 					}
 				},
 
+<<<<<<< HEAD
+			if ( e && !this.isSimulated ) {
+				e.stopPropagation();
+=======
 			set: function( value ) {
 				Object.defineProperty( this, name, {
 					enumerable: true,
@@ -5387,6 +5476,7 @@ jQuery.event = {
 					writable: true,
 					value: value
 				} );
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 			}
 		} );
 	},
@@ -5397,8 +5487,14 @@ jQuery.event = {
 			new jQuery.Event( originalEvent );
 	},
 
+<<<<<<< HEAD
+			if ( e && !this.isSimulated ) {
+				e.stopImmediatePropagation();
+			}
+=======
 	special: {
 		load: {
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 			// Prevent triggered image.load events from bubbling to window.load
 			noBubble: true
@@ -6352,6 +6448,18 @@ function vendorPropName( name ) {
 		return name;
 	}
 
+<<<<<<< HEAD
+		// Some non-html elements return undefined for offsetWidth, so check for null/undefined
+		// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
+		// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
+		if ( val <= 0 || val == null ) {
+
+			// Fall back to computed then uncomputed css if necessary
+			val = curCSS( elem, name, styles );
+			if ( val < 0 || val == null ) {
+				val = elem.style[ name ];
+			}
+=======
 	// Check for vendor prefixed names
 	var capName = name[ 0 ].toUpperCase() + name.slice( 1 ),
 		i = cssPrefixes.length;
@@ -6375,6 +6483,7 @@ function finalPropName( name ) {
 }
 
 function setPositiveNumber( elem, value, subtract ) {
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 	// Any relative (+/-) values have already been
 	// normalized at this point
@@ -7854,6 +7963,32 @@ if ( !support.optSelected ) {
 
 			/* eslint no-unused-expressions: "off" */
 
+<<<<<<< HEAD
+	// Support: IE <=11 only
+	// Accessing the selectedIndex property
+	// forces the browser to respect setting selected
+	// on the option
+	// The getter ensures a default option is selected
+	// when in an optgroup
+	if ( !support.optSelected ) {
+		jQuery.propHooks.selected = {
+			get: function( elem ) {
+				var parent = elem.parentNode;
+				if ( parent && parent.parentNode ) {
+					parent.parentNode.selectedIndex;
+				}
+				return null;
+			},
+			set: function( elem ) {
+				var parent = elem.parentNode;
+				if ( parent ) {
+					parent.selectedIndex;
+
+					if ( parent.parentNode ) {
+						parent.parentNode.selectedIndex;
+					}
+				}
+=======
 			var parent = elem.parentNode;
 			if ( parent ) {
 				parent.selectedIndex;
@@ -7861,6 +7996,7 @@ if ( !support.optSelected ) {
 				if ( parent.parentNode ) {
 					parent.parentNode.selectedIndex;
 				}
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 			}
 		}
 	};
@@ -8067,6 +8203,11 @@ jQuery.fn.extend( {
 } );
 
 
+<<<<<<< HEAD
+	var rreturn = /\r/g,
+		rspaces = /[\x20\t\r\n\f]+/g;
+=======
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 
 
 var rreturn = /\r/g;
@@ -8168,8 +8309,20 @@ jQuery.extend( {
 				if ( index < 0 ) {
 					i = max;
 
+<<<<<<< HEAD
+					var val = jQuery.find.attr( elem, "value" );
+					return val != null ?
+						val :
+
+						// Support: IE10-11+
+						// option.text throws exceptions (#14686, #14858)
+						// Strip and collapse whitespace
+						// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+						jQuery.trim( jQuery.text( elem ) ).replace( rspaces, " " );
+=======
 				} else {
 					i = one ? index : 0;
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 				}
 
 				// Loop through all the selected options
@@ -8185,12 +8338,21 @@ jQuery.extend( {
 							( !option.parentNode.disabled ||
 								!nodeName( option.parentNode, "optgroup" ) ) ) {
 
+<<<<<<< HEAD
+					while ( i-- ) {
+						option = options[ i ];
+						if ( option.selected =
+							jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
+						) {
+							optionSet = true;
+=======
 						// Get the specific value for the option
 						value = jQuery( option ).val();
 
 						// We don't need an array for one selects
 						if ( one ) {
 							return value;
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 						}
 
 						// Multi-Selects return an array
@@ -8392,6 +8554,21 @@ jQuery.extend( jQuery.event, {
 
 					elem[ type ]();
 
+<<<<<<< HEAD
+		// Piggyback on a donor event to simulate a different one
+		// Used only for `focus(in | out)` events
+		simulate: function( type, elem, event ) {
+			var e = jQuery.extend(
+				new jQuery.Event(),
+				event,
+				{
+					type: type,
+					isSimulated: true
+				}
+			);
+
+			jQuery.event.trigger( e, null, elem );
+=======
 					if ( event.isPropagationStopped() ) {
 						lastElement.removeEventListener( type, stopPropagationCallback );
 					}
@@ -8403,6 +8580,7 @@ jQuery.extend( jQuery.event, {
 					}
 				}
 			}
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 		}
 
 		return event.result;
@@ -9902,6 +10080,28 @@ support.createHTMLDocument = ( function() {
 } )();
 
 
+<<<<<<< HEAD
+	// Argument "data" should be string of html
+	// context (optional): If specified, the fragment will be created in this context,
+	// defaults to document
+	// keepScripts (optional): If true, will include scripts passed in the html string
+	jQuery.parseHTML = function( data, context, keepScripts ) {
+		if ( !data || typeof data !== "string" ) {
+			return null;
+		}
+		if ( typeof context === "boolean" ) {
+			keepScripts = context;
+			context = false;
+		}
+		context = context || document;
+
+		var parsed = rsingleTag.exec( data ),
+			scripts = !keepScripts && [];
+
+		// Single tag
+		if ( parsed ) {
+			return [ context.createElement( parsed[ 1 ] ) ];
+=======
 // Argument "data" should be string of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
@@ -9932,6 +10132,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 			context.head.appendChild( base );
 		} else {
 			context = document;
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 		}
 	}
 
@@ -10003,12 +10204,22 @@ jQuery.fn.load = function( url, params, callback ) {
 				// Otherwise use the full result
 				responseText );
 
+<<<<<<< HEAD
+			// If the request succeeds, this function gets "data", "status", "jqXHR"
+			// but they are ignored because response was set above.
+			// If it fails, this function gets "jqXHR", "status", "error"
+			} ).always( callback && function( jqXHR, status ) {
+				self.each( function() {
+					callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
+				} );
+=======
 		// If the request succeeds, this function gets "data", "status", "jqXHR"
 		// but they are ignored because response was set above.
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
 			self.each( function() {
 				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
+>>>>>>> 44ed23bdc0df763c090bd356980bbd83538dcd34
 			} );
 		} );
 	}
